@@ -66,5 +66,5 @@ class Admin:
         if self.loan_amount > 0:
             print(f'You are given {self.loan_amount} tk loan')
         else:
-            print('No one given loan with this bank')
+            print('No one taken loan with this bank')
 
