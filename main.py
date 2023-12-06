@@ -73,7 +73,9 @@ def main():
                         if x=='5':
                             print('Enter amount: ')
                             loan_amount = int(input())
-                            user.take_loan(loan_amount, admin)
+                            print('Enter account number: ')
+                            account_number = input()
+                            user.take_loan(loan_amount, admin, account_number)
                         if x=='6':
                             user.check_balance()
                 if match == False:

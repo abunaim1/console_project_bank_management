@@ -41,11 +41,19 @@ class Users:
             admin.balance -= amount
             admin.loan_amount += amount
             self.balance += amount
+            self.transictions.append(f'Take loan - {amount} - {date}')
             print('The loan is added to your balance.')
         else:
             print('The bank is bankrupt.')
 
-    def transfer_money(self, amount, admin):
-        #TODO have to transfer money from one account to another account. 
+    def transfer_money(self, amount, admin, account_number):
+        #have to transfer money from one account to another account. 
+        match = False
         for user in admin.users:
-            
+            if user.account_number == account_number and self.balance >= amount:
+                self.balance -= amount
+                user.balance += amount
+                self.transictions.append(f'Balane Transfer - {amount} - {date}')
+                match = True
+        if match == False:
+            print('Balance Short or this account number is not our user.')
