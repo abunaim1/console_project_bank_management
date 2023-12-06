@@ -51,14 +51,20 @@ class Admin:
             for user in self.users:
                 if account_number == user.account_number:
                     self.users.remove(user)
-                    print(f'Removed {account_number} this account')
+                    print(f'Removed {account_number} this account successfully.')
                     match = True
         if match == False:
             print('Not available')
 
     def check_bank_balance(self):
-        print(self.balance)
+        if self.balance > 0:
+            print(self.balance)
+        else:
+            print('No amount yet!')
 
     def check_loan_amount(self):
-        print(f'You are given {self.loan_amount} tk loan')
+        if self.loan_amount > 0:
+            print(f'You are given {self.loan_amount} tk loan')
+        else:
+            print('No one given loan with this bank')
 

@@ -55,5 +55,6 @@ class Users:
                 user.balance += amount
                 self.transictions.append(f'Balane Transfer - {amount} - {date}')
                 match = True
+                print(f'Your {amount} tk transfer to this accont number {account_number}')
         if match == False:
             print('Balance Short or this account number is not our user.')

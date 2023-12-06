@@ -19,9 +19,8 @@ def main():
                 print('1. Create account')
                 print('2. Delete account')
                 print('3. See all users list')
-                print('4. Total available balance') #not done
-                print('5. Total loan amount') #not done
-                print('6. Exit')
+                print('4. Total available balance') 
+                print('5. Total loan amount')
                 press= input()
                 if press == '1':
                     admin.create_account()
@@ -33,8 +32,8 @@ def main():
                     admin.check_user()
                 if press == '4':
                     admin.check_bank_balance()
-                if press == '6':
-                    break
+                if press == '5':
+                    admin.check_loan_amount()
             if person == '2':
                 print('Enter account number: ')
                 account_number = input()
@@ -68,22 +67,29 @@ def main():
                         if x=='4':
                             print('Enter amount that you want to transfer: ')
                             transfer_amount = int(input())
-                            if user.balance >= transfer_amount:
-                                user.transfer_money(transfer_amount, admin)
-                        if x=='5':
-                            print('Enter amount: ')
-                            loan_amount = int(input())
-                            print('Enter account number: ')
+                            print('Enter account number where you want to transfer: ')
                             account_number = input()
-                            user.take_loan(loan_amount, admin, account_number)
+                            if user.balance >= transfer_amount:
+                                user.transfer_money(transfer_amount, admin, account_number)
+                            else:
+                                print('Not Possible!')
+                        if x=='5':
+                            print('Enter amount that you want to take loan: ')
+                            loan_amount = int(input())
+                            year = datetime.now().year
+                            month = datetime.now().month
+                            day = datetime.now().day
+                            user.take_loan(loan_amount, admin, (year, month, day))
                         if x=='6':
                             user.check_balance()
                 if match == False:
                     print('Account number does not exist! Create account with admin.')
-            else:
+            if person == '3':
                 break
     else:
         print('Not exist!')
         
 if __name__ == '__main__':
     main()
+
+#loan date time
