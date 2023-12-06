@@ -4,6 +4,7 @@ class Admin:
         self.name = name
         self.__password = password
         self.users = []
+        self.balance = 0
     
     @property
     def password(self):
@@ -19,9 +20,9 @@ class Admin:
         acc_type = input()
         acc_type.lower()
         if acc_type == 'savings' or acc_type == 'current':
-            print('Enter name: ')
+            print('Enter your name: ')
             name = input()
-            print('Enter you email: ')
+            print('Enter your email: ')
             email = input()
             account_number = f'{name.lower()}-{email.lower()}'
             match = False
@@ -48,14 +49,14 @@ class Admin:
         if len(self.users) > 0:
             for user in self.users:
                 if account_number == user.account_number:
-                    user.remove()
+                    self.users.remove(user)
                     print(f'Removed {account_number} this account')
                     match = True
         if match == False:
             print('Not available')
 
     def check_bank_balance(self):
-        pass
+        print(self.balance)
 
     def check_loan_amount(self):
         pass
