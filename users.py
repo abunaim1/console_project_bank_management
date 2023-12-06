@@ -35,15 +35,17 @@ class Users:
         else:
             print('Not a single transiction yet!')
     
-    def take_loan(self,amount, admin):
+    def take_loan(self, amount, admin):
         #if he has account in this bank he can take two loan from this bank.
         if admin.balance > amount:
             admin.balance -= amount
+            admin.loan_amount += amount
             self.balance += amount
             print('The loan is added to your balance.')
         else:
             print('The bank is bankrupt.')
 
-    def transfer_money(self, amount, user):
+    def transfer_money(self, amount, admin):
         #TODO have to transfer money from one account to another account. 
-        pass
+        for user in admin.users:
+            

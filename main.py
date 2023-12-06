@@ -59,8 +59,6 @@ def main():
                         if x=='2':
                             print('Enter withdrawal amount')
                             withdrawal_amount = int(input())
-                            # year = datetime.now().year
-                            # month = datetime.now().month
                             year = datetime.now().year
                             month = datetime.now().month
                             day = datetime.now().day
@@ -68,7 +66,10 @@ def main():
                         if x=='3':
                             user.transiction_history()
                         if x=='4':
-                            pass
+                            print('Enter amount that you want to transfer: ')
+                            transfer_amount = int(input())
+                            if user.balance >= transfer_amount:
+                                user.transfer_money(transfer_amount, admin)
                         if x=='5':
                             print('Enter amount: ')
                             loan_amount = int(input())

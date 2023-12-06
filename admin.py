@@ -5,6 +5,7 @@ class Admin:
         self.__password = password
         self.users = []
         self.balance = 0
+        self.loan_amount = 0
     
     @property
     def password(self):
@@ -59,5 +60,5 @@ class Admin:
         print(self.balance)
 
     def check_loan_amount(self):
-        pass
+        print(f'You are given {self.loan_amount} tk loan')
 
