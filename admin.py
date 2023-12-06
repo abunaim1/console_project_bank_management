@@ -24,11 +24,17 @@ class Admin:
             print('Enter you email: ')
             email = input()
             account_number = f'{name.lower()}-{email.lower()}'
-            user = Users(name, email, acc_type, account_number)
-            self.users.append(user)
-            print(f'Account created successfully your account number is: {account_number}')
+            match = False
+            for user in self.users:
+                if user.account_number == account_number:
+                    print('This account already exist.')
+                    match = True
+            if match == False:
+                user = Users(name, email, acc_type, account_number)
+                self.users.append(user)
+                print(f'Account created successfully your account number is: {account_number}')
         else:
-            print('Not available')
+            print('Not available this type')
     
     def check_user(self):
         if len(self.users) > 0:
