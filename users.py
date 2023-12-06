@@ -35,7 +35,7 @@ class Users:
         else:
             print('Not a single transiction yet!')
     
-    def take_loan(self, amount, admin):
+    def take_loan(self, amount, admin, date):
         #if he has account in this bank he can take two loan from this bank.
         if admin.balance > amount:
             admin.balance -= amount
